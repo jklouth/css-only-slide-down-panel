@@ -162,11 +162,14 @@ footer {
     @include rem(left,0px);
     & p { 
         font-size: 87.5%;
-        color: #000;
+        color: #ddd;
     }
     & a { 
-        text-decoration: none; color: rgb(207,4,4);
-    }
+        text-decoration: none; color: #ccc; border-bottom: 1px solid;
+       &:hover { 
+            color: #aaa;
+        }
+    } 
 }
 
 @media screen and (max-width: 380px) { 

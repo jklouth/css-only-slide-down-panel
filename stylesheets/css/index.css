@@ -190,10 +190,13 @@ footer {
   left: 0rem; }
   footer p {
     font-size: 87.5%;
-    color: #000; }
+    color: #ddd; }
   footer a {
     text-decoration: none;
-    color: #cf0404; }
+    color: #ccc;
+    border-bottom: 1px solid; }
+    footer a:hover {
+      color: #aaa; }
 
 @media screen and (max-width: 380px) {
   header h1 {
