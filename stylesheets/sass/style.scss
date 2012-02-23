@@ -123,8 +123,10 @@ html {
     background-attachment: fixed;
 }
 
-h1 { 
-    @include rem(font-size, 16px);
+header { 
+    text-align: center;
+    & h1 { 
+    @include rem(font-size, 16px); }
 }
 
 .wrap { 
@@ -133,7 +135,6 @@ h1 {
     margin-right: auto;
     @include rem(margin-top, 24px); 
     @include transition;
-    text-align: center;
     #top_share:checked ~ & { 
         @include rem(margin-top, 112px); }
 }
