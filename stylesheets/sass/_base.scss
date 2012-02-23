@@ -1,0 +1,62 @@
+
+// Post specific mixins -----------------------------------------------
+ 
+@mixin transition { 
+    -webkit-transition: .125s linear all;
+       -moz-transition: .125s linear all;
+        -ms-transition: .125s linear all;
+         -o-transition: .125s linear all;
+            transition: .125s linear all; }
+
+@mixin boxSizing($bsProperty: border-box) { 
+  -webkit-box-sizing: $bsProperty;
+     -moz-box-sizing: $bsProperty;
+      -ms-box-sizing: $bsProperty;
+          box-sizing: $bsProperty; }
+
+@mixin selection($selectionColor, $selectionBackground) {
+  ::selection { 
+    color: $selectionColor; 
+    background: $selectionBackground; 
+    text-shadow: none; }
+  ::-moz-selection { 
+    color: $selectionColor; 
+    background: $selectionBackground;    
+    text-shadow: none; }
+}
+
+@mixin invisible { display: none; visibility: hidden; }
+@mixin visible { display: block; visibility: visible; }  
+
+@mixin invisibleAccessible { 
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important; }
+
+@mixin cf { *zoom:1;
+  &:before, &:after {
+    content: ""; display: table; }
+  &:after { clear: both; } }
+
+// Rem Font Sizing ----------------------------------------------------
+$baseline-px: 16px;
+
+@mixin rem($property, $px-values) { 
+  $baseline-rem: $baseline-px / 1rem;
+  #{$property}: $px-values;
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem; }
+  @else {
+    $rem-values: unquote("");
+    @each $value in $px-values {
+      @if $value == 0 {
+        $rem-values: append($rem-values, $value); }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem); } }
+    #{$property}: $rem-values; } 
+}

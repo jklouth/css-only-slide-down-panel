@@ -1,0 +1,145 @@
+// Imports -----------------------------------------------------
+
+@import "base";
+
+/*- Reset ----------------------------------------------------*/
+
+* { 
+  margin: 0; padding: 0;
+  @include boxSizing(); }
+
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block; }
+
+/* Base Type 
+-----------------------------------------------------*/
+html { font-size: 100%; }
+
+body {
+    font-size: 100%;    
+    line-height: 1.5em;
+    line-height: 1.5rem;
+    font-family: sans-serif;
+}
+
+/* Share Links 
+-----------------------------------------------------*/
+
+/*- Aside ----------*/
+.share { 
+    box-shadow: 0 1px rgba(0,0,0,.1);
+    @include transition;
+    position: absolute;
+    @include rem(top, -120px);
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+    @include rem(padding-top, 26px);
+    @include rem(padding-bottom, 26px);
+    left: 5%;
+    margin: auto;
+    & ul { 
+        & li {
+            height: 20px; 
+            display: block; 
+            float: left;
+            margin-left: 2%;
+            &:first-of-type { 
+                margin-left: 0;             
+            } 
+            &:last-of-type { 
+                float: right;             
+            }                
+        }
+    }
+}
+    
+/*- Checkbox ----------*/
+#top_share { @include invisibleAccessible; }
+
+/*- Label ----------*/
+[for="top_share"] { 
+    cursor: pointer;
+    @include transition;    
+    position: absolute;
+    right: 10%;  
+    @include rem(top, 24px);    
+    & span { 
+        @include transition;
+        &:nth-of-type(1) { @include invisibleAccessible; }
+        &:nth-of-type(2) {
+            font-size: 125%;
+            color: rgba(0,0,0,.25);
+       }
+       &:nth-of-type(3) { @include invisible; }
+       &:hover { color: red; }
+    }
+}    
+  
+#top_share:checked {
+    & ~ .share { 
+        @include rem(top, 0px); 
+    }
+    & ~ [for="top_share"] { 
+        opacity: 1;
+        @include rem(top, 114px);
+        & span { 
+            &:nth-of-type(2) { @include invisible; }
+            &:nth-of-type(3) { 
+                font-size: 125%;
+                color: rgba(0,0,0,.25);
+                @include visible; 
+            }
+        &:hover { color: red; }
+        }
+    }                
+}
+
+/*- Media Queries ----------*/
+@media screen and (max-width: 380px) { 
+
+    .share { 
+        & ul { 
+            & li { 
+                &:last-of-type { 
+					display: block; 
+					float: left; 
+				}
+            }
+        } 
+    }
+}
+
+/* unrelated styles */
+html { 
+
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(top, rgb(255,255,255) 0%, rgb(245,245,245) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(255,255,255)), color-stop(100%,rgb(245,245,245)));
+    background: -webkit-linear-gradient(top, rgb(255,255,255) 0%,rgb(245,245,245) 100%);
+    background: -o-linear-gradient(top, rgb(255,255,255) 0%,rgb(245,245,245) 100%);
+    background: -ms-linear-gradient(top, rgb(255,255,255) 0%,rgb(245,245,245) 100%);
+    background: linear-gradient(top, rgb(255,255,255) 0%,rgb(245,245,245) 100%);
+    background-attachment: fixed;
+}
+
+h1 { 
+    @include rem(font-size, 16px);
+}
+
+.wrap { 
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    @include rem(margin-top, 24px); 
+    @include transition;
+    text-align: center;
+    #top_share:checked ~ & { 
+        @include rem(margin-top, 112px); }
+}
+
+@media screen and (max-width: 380px) { 
+
+	.wrap { text-align: left; }
+
+}
