@@ -22,7 +22,7 @@ body {
     font-family: sans-serif;
 }
 
-@include selection(#fff,#f00);
+@include selection(#fff,rgb(207,4,4));
 
 /* Share Links 
 -----------------------------------------------------*/
@@ -71,13 +71,13 @@ body {
         &:nth-of-type(1) { @include invisibleAccessible; }
         &:nth-of-type(2) {
             font-size: 125%;
-            color: #7FC1F1;
+            color: rgb(207,4,4);
             background: #fff;
             @include rem(padding, 6px 4px 2px 4px);
             border-radius: 0 0 3px 3px;
        }
        &:nth-of-type(3) { @include invisible; }
-       &:hover { color: red; }
+       &:hover { color: black; }
     }
 }    
   
@@ -94,12 +94,12 @@ body {
                 font-size: 125%;
                 color: rgba(0,0,0,.25);
                 @include visible; 
-                color: #7FC1F1;
+                color: rgb(207,4,4);
                 background: #fff;
                 @include rem(padding, 6px 4px 2px 4px);
                 border-radius: 0 0 3px 3px;            
             }
-        &:hover { color: red; }
+        &:hover { color: black; }
         }
     }                
 }
@@ -121,13 +121,14 @@ body {
 
 /* unrelated styles */
 html { 
-    background: rgb(126,193,241) url(../../img/city.png);
-    background: url(../../img/city.png), -moz-linear-gradient(top, rgba(126,193,241,1) 0%, rgba(193,224,255,1) 100%);
-    background: url(../../img/city.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(126,193,241,1)), color-stop(100%,rgba(193,224,255,1)));
-    background: url(../../img/city.png), -webkit-linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
-    background: url(../../img/city.png), -o-linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
-    background: url(../../img/city.png), -ms-linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
-    background: url(../../img/city.png), linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
+background: rgb(207,4,4);
+background: -moz-linear-gradient(top, rgba(207,4,4,1) 0%, rgba(255,48,25,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(207,4,4,1)), color-stop(100%,rgba(255,48,25,1)));
+background: url(../../img/city.png), -webkit-linear-gradient(top, rgba(207,4,4,1) 0%,rgba(255,48,25,1) 100%);
+background: -o-linear-gradient(top, rgba(207,4,4,1) 0%,rgba(255,48,25,1) 100%);
+background: -ms-linear-gradient(top, rgba(207,4,4,1) 0%,rgba(255,48,25,1) 100%);
+background: linear-gradient(top, rgba(207,4,4,1) 0%,rgba(255,48,25,1) 100%);
+
     background-attachment: fixed;
     background-position: 100% 100%, 0 0;
     background-repeat: repeat-x;
