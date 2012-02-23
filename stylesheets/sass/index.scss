@@ -110,7 +110,8 @@ body {
     .share { 
         & ul { 
             & li { 
-                &:nth-of-type(2), &:nth-of-type(3) { kleep this stuff */
+                &:nth-of-type(2), &:nth-of-type(3) { 
+                /* this is just me being lazy, using rems, we can easily calculate space needed to keep this stuff */
 					@include invisible; 
 				}
             }
