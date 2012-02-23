@@ -1,0 +1,158 @@
+// Imports -----------------------------------------------------
+
+@import "base";
+
+/*- Reset ----------------------------------------------------*/
+
+* { 
+  margin: 0; padding: 0;
+  @include boxSizing(); }
+
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { display: block; }
+
+/* Base Type 
+-----------------------------------------------------*/
+html { font-size: 100%; }
+
+body {
+    font-size: 100%;    
+    line-height: 1.5em;
+    line-height: 1.5rem;
+    font-family: sans-serif;
+}
+
+@include selection(#fff,#f00);
+
+/* Share Links 
+-----------------------------------------------------*/
+
+/*- Aside ----------*/
+.share { 
+    background: #fff;
+    @include transition;
+    position: absolute;
+    /* to leave white border, otherwise, 72px */    
+    @include rem(top, -68px);
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    @include rem(padding-top, 26px);
+    @include rem(padding-bottom, 26px);
+    margin: auto;
+    & ul { 
+        & li {
+            height: 20px; 
+            display: block; 
+            float: left;
+            margin-left: 2%;
+            &:first-of-type { 
+                margin-left: 0;             
+            } 
+            &:last-of-type { 
+                float: right;             
+            }                
+        }
+    }
+}
+    
+/*- Checkbox ----------*/
+#top_share { @include invisibleAccessible; }
+
+/*- Label ----------*/
+[for="top_share"] { 
+    cursor: pointer;
+    @include transition;    
+    position: absolute;
+    right: 10%;  
+    @include rem(top, 8px);    
+    & span { 
+        @include transition;
+        &:nth-of-type(1) { @include invisibleAccessible; }
+        &:nth-of-type(2) {
+            font-size: 125%;
+            color: #7FC1F1;
+            background: #fff;
+            @include rem(padding, 6px 4px 2px 4px);
+            border-radius: 0 0 3px 3px;
+       }
+       &:nth-of-type(3) { @include invisible; }
+       &:hover { color: red; }
+    }
+}    
+  
+#top_share:checked {
+    & ~ .share { 
+        @include rem(top, 0px); 
+    }
+    & ~ [for="top_share"] { 
+        opacity: 1;
+        @include rem(top, 70px);
+        & span { 
+            &:nth-of-type(2) { @include invisible; }
+            &:nth-of-type(3) { 
+                font-size: 125%;
+                color: rgba(0,0,0,.25);
+                @include visible; 
+                color: #7FC1F1;
+                background: #fff;
+                @include rem(padding, 6px 4px 2px 4px);
+                border-radius: 0 0 3px 3px;            
+            }
+        &:hover { color: red; }
+        }
+    }                
+}
+
+/*- Media Queries ----------*/
+@media screen and (max-width: 380px) { 
+
+    .share { 
+        & ul { 
+            & li { 
+                &:last-of-type { 
+					display: block; 
+					float: left; 
+				}
+            }
+        } 
+    }
+}
+
+/* unrelated styles */
+html { 
+    background: rgb(126,193,241) url(../../img/city.png);
+    background: url(../../img/city.png), -moz-linear-gradient(top, rgba(126,193,241,1) 0%, rgba(193,224,255,1) 100%);
+    background: url(../../img/city.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(126,193,241,1)), color-stop(100%,rgba(193,224,255,1)));
+    background: url(../../img/city.png), -webkit-linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
+    background: url(../../img/city.png), -o-linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
+    background: url(../../img/city.png), -ms-linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
+    background: url(../../img/city.png), linear-gradient(top, rgba(126,193,241,1) 0%,rgba(193,224,255,1) 100%);
+    background-attachment: fixed;
+    background-position: 100% 100%, 0 0;
+    background-repeat: repeat-x;
+}
+
+header { 
+    text-align: center;
+    & h1 { 
+        @include rem(font-size, 24px); 
+        color: #fff;
+    }
+}
+
+.wrap { 
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    @include rem(margin-top, 72px); 
+    @include transition;
+    #top_share:checked ~ & { 
+        @include rem(margin-top, 112px); }
+}
+
+@media screen and (max-width: 380px) { 
+
+	.wrap { text-align: left; }
+
+}
