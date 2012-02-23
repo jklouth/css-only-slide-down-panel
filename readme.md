@@ -6,8 +6,7 @@ My example pushes the main content down, for effect. You can, just as easily, ha
 
 Known issues: 
 
-1. There's an iPhone issue with the slider content being pushed down. Works fine on iPad, so it's probably my code. 
-2. Using unicode fonts isn't really the best, due to different browser's renderings. I'd suggest an icon font. 
+1. Using unicode fonts isn't really the best, due to different browser's renderings. I'd suggest an icon font. 
 
 Example: http://genelocklin.github.com/css-only-slide-down-panel/
 

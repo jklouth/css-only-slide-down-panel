@@ -110,9 +110,9 @@ body {
     .share { 
         & ul { 
             & li { 
-                &:last-of-type { 
-					display: block; 
-					float: left; 
+                &:nth-of-type(2), &:nth-of-type(3) { 
+                /* this is just me being lazy, using rems, we can easily calculatespace needed to leep this stuff */
+					@include invisible; 
 				}
             }
         } 
@@ -149,6 +149,14 @@ header {
     @include transition;
     #top_share:checked ~ & { 
         @include rem(margin-top, 112px); }
+}
+
+@media screen and (max-width: 380px) { 
+
+    header h1 { 
+        @include rem(font-size, 16px); 
+    }
+
 }
 
 /*
