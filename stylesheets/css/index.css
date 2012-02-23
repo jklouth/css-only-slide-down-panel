@@ -153,7 +153,7 @@ html {
   background: url(../../img/city.png), -ms-linear-gradient(top, #cf0404 0%, #ff3019 100%);
   background: url(../../img/city.png), linear-gradient(top, #cf0404 0%, #ff3019 100%);
   background-attachment: fixed;
-  background-position: 100% 100%, 0 0;
+  background-position: 100% 98%, 0 0;
   background-repeat: repeat-x; }
 
 header {
@@ -178,22 +178,27 @@ header {
     margin-top: 112px;
     margin-top: 7rem; }
 
+footer {
+  width: 100%;
+  padding: 1% 5%;
+  background: #fff;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  bottom: 0rem;
+  left: 0px;
+  left: 0rem; }
+  footer p {
+    font-size: 87.5%;
+    color: #000; }
+  footer a {
+    text-decoration: none;
+    color: #cf0404; }
+
 @media screen and (max-width: 380px) {
   header h1 {
     font-size: 16px;
-    font-size: 1rem; } }
-/*
-footer { 
-    width: 100%;
-    padding: 1% 5%;
-    background: #fff;
-    text-align: center;
-    position: absolute;
-    @include rem(bottom,0px);
-    @include rem(left,0px);
-    & p { 
-        font-size: 75%;
-        color: rgb(207,4,4);
-    }
-}
-*/
+    font-size: 1rem; }
+
+  footer p {
+    font-size: 65%; } }
